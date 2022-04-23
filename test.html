@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            .zakimg4{
+               position: relative; 
+               
+               height: 30%;
+               width: auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="photos">
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/3f3b60b471.js" crossorigin="anonymous"></script>
+        <script>
+
+            //create photos            
+            $(window).on('load',function() {
+                let line = 0;
+                for(let i = 1; i <= 15; i++){
+                    $('#photos').append(`<img class="zakimg4 line${line}" src="pictures/4/zdjecia/${i}.png"/>`);
+                    
+                    switch (i){
+                        case 5 : $('#photos').append(`<br/>`);line++;break;
+                        case 9 : $('#photos').append(`<br/>`);line++;break;
+                        default : break;
+                    }
+                    
+                }
+                let line123 = Array.from(document.querySelectorAll('.zakimg4'));
+                let line1 = Array.from(document.querySelectorAll('.line0'));
+                let line2 = Array.from(document.querySelectorAll('.line1'));
+                let line3 = Array.from(document.querySelectorAll('.line2'));
+                let hght = $(line1[0]).height();
+                $(line1[0]).css({'height':`${hght *2}`});
+                $(line2[2]).css({'height':`${hght *2}`});
+                $(line2[3]).css({'height':`${hght *2}`});
+                for(let i = 1; i<=6;i++){
+                    $(line123[i]).css({'transform':`translateY(${-1*$(line123[i]).height()/2}px)`}); 
+                }
+                $(line2[2]).css({'transform':`translateY(${-1*$(line2[2]).height()/2}px)`});
+                $(line2[3]).css({'transform':`translateY(${-1*$(line2[2]).height()/2}px)`});
+                for(let i = 0; i<=6;i++){
+                    $(line3[i]).css({'transform':`translateY(${-1*$(line3[i]).height()}px)`}); 
+                }                
+            })
+
+        </script>
+    </body>
+</html>
